@@ -14,6 +14,8 @@ namespace DefineReminder.ViewModels
         {
             eventDate = DateTime.Now;
 
+            Title = "Add Reminder Event";
+
             SaveCommand = new Command(OnSave, ValidateSave);
             CancelCommand = new Command(OnCancel);
 
@@ -60,7 +62,7 @@ namespace DefineReminder.ViewModels
             {
                 Name = Name,
                 Description = Description,
-                EventDate = eventDate.ToUniversalTime(),
+                EventDate = eventDate,
             };
 
             await DataStore.AddItemAsync(newReminderEvent);

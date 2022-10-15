@@ -54,6 +54,8 @@ namespace DefineReminder.ViewModels
                 Name = item.Name;
                 Description = item.Description;
                 EventDate = item.EventDate;
+
+                Title = $"Event: {Name}";
             }
             catch (Exception)
             {
