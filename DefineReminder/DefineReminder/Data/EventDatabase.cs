@@ -25,13 +25,13 @@ namespace DefineReminder.Data
         {
             // Get a specific event.
             return database.Table<EventEntity>()
-                            .Where(i => i.ID == id)
+                            .Where(i => i.Id == id)
                             .FirstOrDefaultAsync();
         }
 
         public Task<int> SaveNoteAsync(EventEntity eventEntity)
         {
-            if (eventEntity.ID != 0)
+            if (eventEntity.Id != 0)
             {
                 // Update an existing event.
                 return database.UpdateAsync(eventEntity);
