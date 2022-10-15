@@ -10,7 +10,7 @@ namespace DefineReminder.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        public IDataStore<ReminderEvent> DataStore => DependencyService.Get<IDataStore<ReminderEvent>>();
 
         bool isBusy = false;
         public bool IsBusy
