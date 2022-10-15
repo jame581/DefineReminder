@@ -9,7 +9,10 @@
             <Entry Text="{Binding Name, Mode=TwoWay}" FontSize="Medium" />
             <Label Text="Description" FontSize="Medium" />
             <Editor Text="{Binding Description, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
+            <Label Text="Select date" FontSize="Medium" />
             <DatePicker Date="{Binding EventDate}" />
+            <Label Text="Select time" FontSize="Medium" />
+            <TimePicker Format="HH:mm:ss" Time="{Binding EventTime}"/>
             <StackLayout Orientation="Horizontal">
                 <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
                 <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>

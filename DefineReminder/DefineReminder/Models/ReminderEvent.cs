@@ -22,7 +22,8 @@ namespace DefineReminder.Models
         int id;
         string name;
         string description;
-        DateTime date;
+        DateTime eventDate;
+        TimeSpan eventTime;
 
         public int Id
         { 
@@ -56,11 +57,21 @@ namespace DefineReminder.Models
 
         public DateTime EventDate
         {
-            get => date;
+            get => eventDate;
             set
             {
-                date = value;
+                eventDate = value;
                 OnPropertyChanged(nameof(EventDate));
+            }
+        }
+        
+        public TimeSpan EventTime
+        {
+            get => eventTime;
+            set
+            {
+                eventTime = value;
+                OnPropertyChanged(nameof(EventTime));
             }
         }
 

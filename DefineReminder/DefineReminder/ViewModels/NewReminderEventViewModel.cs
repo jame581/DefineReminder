@@ -9,10 +9,12 @@ namespace DefineReminder.ViewModels
         string name;
         string description;
         DateTime eventDate;
+        TimeSpan eventTime;
 
         public AddReminderEventViewModel()
         {
             eventDate = DateTime.Now;
+            eventTime = TimeSpan.FromSeconds(0);
 
             Title = "Add Reminder Event";
 
@@ -46,6 +48,11 @@ namespace DefineReminder.ViewModels
             get => eventDate;
             set => SetProperty(ref eventDate, value);
         }
+        public TimeSpan EventTime
+        {
+            get => eventTime;
+            set => SetProperty(ref eventTime, value);
+        }
 
         public Command SaveCommand { get; }
         public Command CancelCommand { get; }
@@ -58,11 +65,13 @@ namespace DefineReminder.ViewModels
 
         private async void OnSave()
         {
+            DateTime dateTime = new DateTime(eventDate.Year, eventDate.Month, eventDate.Day, eventTime.Hours, eventTime.Minutes, eventTime.Seconds);
+
             ReminderEvent newReminderEvent = new ReminderEvent()
             {
                 Name = Name,
                 Description = Description,
-                EventDate = eventDate,
+                EventDate = dateTime,
             };
 
             await DataStore.AddItemAsync(newReminderEvent);
