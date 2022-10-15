@@ -8,34 +8,34 @@ using Xamarin.Forms;
 
 namespace DefineReminder.ViewModels
 {
-    public class EventsViewModel : BaseViewModel
+    public class ReminderEventsViewModel : BaseViewModel
     {
-        private ReminderEvent selectedEvent;
+        private ReminderEvent selectedReminderEvent;
         public ObservableCollection<ReminderEvent> ReminderEvents { get; }
-        public Command LoadEventsCommand { get; }
-        public Command AddEventCommand { get; }
-        public Command<ReminderEvent> EventTapped { get; }
+        public Command LoadReminderEventsCommand { get; }
+        public Command AddReminderEventCommand { get; }
+        public Command<ReminderEvent> ReminderEventTapped { get; }
 
-        public ReminderEvent SelectedItem
+        public ReminderEvent SelectedReminderEvent
         {
-            get => selectedEvent;
+            get => selectedReminderEvent;
             set
             {
-                SetProperty(ref selectedEvent, value);
+                SetProperty(ref selectedReminderEvent, value);
                 OnEventSelected(value);
             }
         }
 
-        public EventsViewModel()
+        public ReminderEventsViewModel()
         {
             Title = "Browse Events";
             ReminderEvents = new ObservableCollection<ReminderEvent>();
 
-            LoadEventsCommand = new Command(async () => await ExecuteLoadEventsCommand());
+            LoadReminderEventsCommand = new Command(async () => await ExecuteLoadEventsCommand());
 
-            EventTapped = new Command<ReminderEvent>(OnEventSelected);
+            ReminderEventTapped = new Command<ReminderEvent>(OnEventSelected);
 
-            AddEventCommand = new Command(OnAddEvent);
+            AddReminderEventCommand = new Command(OnAddEvent);
         }
 
         async Task ExecuteLoadEventsCommand()
@@ -78,7 +78,7 @@ namespace DefineReminder.ViewModels
         public void OnAppearing()
         {
             IsBusy = true;
-            SelectedItem = null;
+            SelectedReminderEvent = null;
         }
     }
 }

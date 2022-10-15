@@ -8,13 +8,13 @@ namespace DefineReminder.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ReminderEventsPage : ContentPage
     {
-        EventsViewModel viewModel;
+        ReminderEventsViewModel viewModel;
 
         public ReminderEventsPage()
         {
             InitializeComponent();
 
-            BindingContext = viewModel = new EventsViewModel();
+            BindingContext = viewModel = new ReminderEventsViewModel();
         }
 
         protected override void OnAppearing()
