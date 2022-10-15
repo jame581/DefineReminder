@@ -30,5 +30,5 @@ Do you like this project and want me support? Great! I really appreciate it and 
 
 ![Events List](https://user-images.githubusercontent.com/21112138/195997383-d9382ff0-5aa0-4724-835d-101e6d4cbb36.png)
 ![Event Detail](https://user-images.githubusercontent.com/21112138/195997455-a4808a02-f55f-49f6-83d6-eed2037917d0.png)
-![Add New Event](https://user-images.githubusercontent.com/21112138/195997538-6127d4a3-ccb1-4c13-8ade-0f9cce566a83.png)
+![Add New Event](https://user-images.githubusercontent.com/21112138/195999254-db3aa532-7f3e-4469-9304-23d04f314e5e.png)
 ![About](https://user-images.githubusercontent.com/21112138/195997338-1a9ecf9c-4673-4455-a291-a7be977a6076.png)
