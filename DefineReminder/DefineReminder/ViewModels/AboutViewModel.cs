@@ -10,9 +10,13 @@ namespace DefineReminder.ViewModels
         public AboutViewModel()
         {
             Title = "About";
-            OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamarin-quickstart"));
+            OpenGitHubCommand = new Command(async () => await Browser.OpenAsync("https://github.com/jame581/define_reminder"));
+            OpenPortfolioCommand = new Command(async () => await Browser.OpenAsync("https://jame581.azurewebsites.net/"));
+            OpenBuyMeACoffeeCommand = new Command(async () => await Browser.OpenAsync("https://www.buymeacoffee.com/jame581"));
         }
 
-        public ICommand OpenWebCommand { get; }
+        public ICommand OpenGitHubCommand { get; }
+        public ICommand OpenPortfolioCommand { get; }
+        public ICommand OpenBuyMeACoffeeCommand { get; }
     }
 }

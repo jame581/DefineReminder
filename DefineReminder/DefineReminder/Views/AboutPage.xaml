@@ -4,11 +4,11 @@
              x:Class="DefineReminder.Views.AboutPage"
              xmlns:vm="clr-namespace:DefineReminder.ViewModels"
              Title="{Binding Title}">
-    
+
     <ContentPage.BindingContext>
         <vm:AboutViewModel />
     </ContentPage.BindingContext>
-    
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="Accent">#96d1ff</Color>
@@ -29,20 +29,40 @@
         </StackLayout>
         <ScrollView Grid.Row="1">
             <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
-                <Label Text="Start developing now" FontSize="Title"/>
-                <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="0,0,0,0"/>
+                <Label Text="Define Reminder" FontSize="Title"/>
+                
+                <Label Text="Xamarin Forms application for remember important events. The application serves as a demonstration of my experiences with Xamarin. Whole project is available on GitHub." FontSize="16" Padding="0,0,0,0"/>
+                
+                <Button Margin="0,10,0,0" Text="GitHub"
+                        Command="{Binding OpenGitHubCommand}"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White" />
+                
+                <Label Text="Take a look on my portfolio" FontSize="16" Padding="0,0,0,0"/>
+                
+                <Label Text="https://jame581.azurewebsites.net/" FontAttributes="Bold" FontSize="16" Padding="0,0,0,0"/>                
+                
+                <Button Margin="0,10,0,0" Text="Portfolio"
+                        Command="{Binding OpenPortfolioCommand}"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White" />
+
                 <Label FontSize="16" Padding="0,24,0,0">
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="Learn more at "/>
-                                <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
+                                <Span Text="Do you like to support my work? I really appreciate it and "/>
+                                <Span Text="I will be really HAPPY" FontAttributes="Bold"/>
+                                <Span Text=", if you buy me some coffee. That will keep my brain active! :)"/>
                             </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                <Button Margin="0,10,0,0" Text="Learn more"
-                        Command="{Binding OpenWebCommand}"
+
+                <Label Text="https://www.buymeacoffee.com/jame581" FontSize="16" FontAttributes="Bold"/>
+
+                <Button Margin="0,10,0,0" Text="Buy me a coffee"
+                        Command="{Binding OpenBuyMeACoffeeCommand}"
                         BackgroundColor="{StaticResource Primary}"
                         TextColor="White" />
             </StackLayout>
