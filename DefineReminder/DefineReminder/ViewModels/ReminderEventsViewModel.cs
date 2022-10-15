@@ -72,7 +72,7 @@ namespace DefineReminder.ViewModels
                 return;
 
             // This will push the ItemDetailPage onto the navigation stack
-            await Shell.Current.GoToAsync($"{nameof(ItemDetailPage)}?{nameof(ItemDetailViewModel.ItemId)}={reminderEvent.Id}");
+            await Shell.Current.GoToAsync($"{nameof(ReminderEventDetailPage)}?{nameof(ReminderEventDetailViewModel.ReminderEventId)}={reminderEvent.Id}");
         }
 
         public void OnAppearing()
