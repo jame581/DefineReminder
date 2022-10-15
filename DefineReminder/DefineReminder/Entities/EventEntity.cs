@@ -5,6 +5,18 @@ namespace DefineReminder.Entities
 {
     public class EventEntity
     {
+        public EventEntity()
+        {
+
+        }
+
+        public EventEntity(int id, string text, DateTime date)
+        {
+            Id = id;
+            Text = text;
+            Date = date;
+        }
+
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public string Text { get; set; }

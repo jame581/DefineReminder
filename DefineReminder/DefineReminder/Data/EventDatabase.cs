@@ -15,13 +15,13 @@ namespace DefineReminder.Data
             database.CreateTableAsync<EventEntity>().Wait();
         }
 
-        public Task<List<EventEntity>> GetNotesAsync()
+        public Task<List<EventEntity>> GetEventsAsync()
         {
             //Get all events.
             return database.Table<EventEntity>().ToListAsync();
         }
 
-        public Task<EventEntity> GetNoteAsync(int id)
+        public Task<EventEntity> GetEventAsync(int id)
         {
             // Get a specific event.
             return database.Table<EventEntity>()
@@ -29,7 +29,7 @@ namespace DefineReminder.Data
                             .FirstOrDefaultAsync();
         }
 
-        public Task<int> SaveNoteAsync(EventEntity eventEntity)
+        public Task<int> SaveEventAsync(EventEntity eventEntity)
         {
             if (eventEntity.Id != 0)
             {
@@ -43,7 +43,7 @@ namespace DefineReminder.Data
             }
         }
 
-        public Task<int> DeleteNoteAsync(EventEntity eventEntity)
+        public Task<int> DeleteEventAsync(EventEntity eventEntity)
         {
             // Delete a event.
             return database.DeleteAsync(eventEntity);

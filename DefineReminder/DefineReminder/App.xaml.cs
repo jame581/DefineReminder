@@ -19,6 +19,7 @@ namespace DefineReminder
                 {
                     database = new EventDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "EventDatabase.db3"));
                 }
+
                 return database;
             }
         }
@@ -27,7 +28,7 @@ namespace DefineReminder
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
+            DependencyService.Register<EventDataStore>();
             MainPage = new AppShell();
         }
 

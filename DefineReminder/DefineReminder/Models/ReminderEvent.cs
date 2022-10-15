@@ -1,10 +1,23 @@
-﻿using System;
+﻿using DefineReminder.Entities;
+using System;
 using System.ComponentModel;
 
 namespace DefineReminder.Models
 {
     public class ReminderEvent : INotifyPropertyChanged
     {
+        public ReminderEvent()
+        {
+
+        }
+
+        public ReminderEvent(EventEntity eventEntity)
+        {
+            Id = eventEntity.Id;
+            Text = eventEntity.Text;
+            Date = eventEntity.Date;
+        }
+
         int id;
         string text;
         DateTime date;
@@ -24,7 +37,7 @@ namespace DefineReminder.Models
             get => text;
             set
             {
-                Text = value;
+                text = value;
                 OnPropertyChanged(nameof(Text));
             }
         }
@@ -34,7 +47,7 @@ namespace DefineReminder.Models
             get => date;
             set
             {
-                Date = value;
+                date = value;
                 OnPropertyChanged(nameof(Date));
             }
         }
