@@ -10,16 +10,22 @@ namespace DefineReminder.Entities
 
         }
 
-        public EventEntity(int id, string text, DateTime date)
+        public EventEntity(int id, string name, string description, DateTime date)
         {
             Id = id;
-            Text = text;
+            Name = name;
+            Description = description;
             Date = date;
         }
 
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        public string Text { get; set; }
+
+        public string Name { get; set; }
+        
+        [MaxLength(150)]
+        public string Description { get; set; }
+
         public DateTime Date { get; set; }
     }
 }

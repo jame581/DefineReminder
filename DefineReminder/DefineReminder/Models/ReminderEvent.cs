@@ -14,12 +14,14 @@ namespace DefineReminder.Models
         public ReminderEvent(EventEntity eventEntity)
         {
             Id = eventEntity.Id;
-            Text = eventEntity.Text;
+            Name = eventEntity.Name;
+            Description = eventEntity.Description;
             EventDate = eventEntity.Date;
         }
 
         int id;
-        string text;
+        string name;
+        string description;
         DateTime date;
 
         public int Id
@@ -32,13 +34,23 @@ namespace DefineReminder.Models
             }
         }
 
-        public string Text
+        public string Name
         {
-            get => text;
+            get => name;
             set
             {
-                text = value;
-                OnPropertyChanged(nameof(Text));
+                name = value;
+                OnPropertyChanged(nameof(Name));
+            }
+        }
+
+        public string Description
+        {
+            get => description;
+            set
+            {
+                description = value;
+                OnPropertyChanged(nameof(Description));
             }
         }
 

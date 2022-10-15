@@ -6,7 +6,8 @@ namespace DefineReminder.ViewModels
 {
     public class AddReminderEventViewModel : BaseViewModel
     {
-        string text;
+        string name;
+        string description;
         DateTime eventDate;
 
         public AddReminderEventViewModel()
@@ -22,13 +23,20 @@ namespace DefineReminder.ViewModels
 
         private bool ValidateSave()
         {
-            return !String.IsNullOrWhiteSpace(text);
+            return !String.IsNullOrWhiteSpace(name)
+                && !String.IsNullOrWhiteSpace(description);
         }
 
-        public string Text
+        public string Name
         {
-            get => text;
-            set => SetProperty(ref text, value);
+            get => name;
+            set => SetProperty(ref name, value);
+        }
+        
+        public string Description
+        {
+            get => description;
+            set => SetProperty(ref description, value);
         }
 
         public DateTime EventDate
@@ -50,7 +58,8 @@ namespace DefineReminder.ViewModels
         {
             ReminderEvent newReminderEvent = new ReminderEvent()
             {
-                Text = Text,
+                Name = Name,
+                Description = Description,
                 EventDate = eventDate.ToUniversalTime(),
             };
 

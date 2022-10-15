@@ -19,7 +19,7 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Padding="10" x:DataType="model:ReminderEvent">
-                            <Label Text="{Binding Text}" 
+                            <Label Text="{Binding Name}" 
                             LineBreakMode="NoWrap" 
                             Style="{DynamicResource ListItemTextStyle}" 
                             FontSize="16" />
