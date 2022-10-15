@@ -15,7 +15,7 @@ namespace DefineReminder.Models
         {
             Id = eventEntity.Id;
             Text = eventEntity.Text;
-            Date = eventEntity.Date;
+            EventDate = eventEntity.Date;
         }
 
         int id;
@@ -42,13 +42,13 @@ namespace DefineReminder.Models
             }
         }
 
-        public DateTime Date
+        public DateTime EventDate
         {
             get => date;
             set
             {
                 date = value;
-                OnPropertyChanged(nameof(Date));
+                OnPropertyChanged(nameof(EventDate));
             }
         }
 

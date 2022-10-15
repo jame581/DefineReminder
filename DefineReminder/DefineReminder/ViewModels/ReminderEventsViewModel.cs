@@ -48,7 +48,7 @@ namespace DefineReminder.ViewModels
                 var events = await DataStore.GetItemsAsync(true);
                 foreach (var item in events)
                 {
-                    ReminderEvents.Add(item);
+                     ReminderEvents.Add(item);
                 }
             }
             catch (Exception ex)
@@ -63,7 +63,7 @@ namespace DefineReminder.ViewModels
 
         private async void OnAddEvent(object obj)
         {
-            await Shell.Current.GoToAsync(nameof(NewItemPage));
+            await Shell.Current.GoToAsync(nameof(AddReminderEventPage));
         }
 
         async void OnEventSelected(ReminderEvent reminderEvent)

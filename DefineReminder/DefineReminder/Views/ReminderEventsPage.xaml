@@ -18,8 +18,12 @@
                 SelectionMode="None">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout Padding="10" x:DataType="model:Item">
+                        <StackLayout Padding="10" x:DataType="model:ReminderEvent">
                             <Label Text="{Binding Text}" 
+                            LineBreakMode="NoWrap" 
+                            Style="{DynamicResource ListItemTextStyle}" 
+                            FontSize="16" />
+                            <Label Text="{Binding EventDate}" 
                             LineBreakMode="NoWrap" 
                             Style="{DynamicResource ListItemTextStyle}" 
                             FontSize="16" />

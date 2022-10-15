@@ -9,7 +9,7 @@ namespace DefineReminder.Services
     {
         public async Task<bool> AddItemAsync(ReminderEvent item)
         {
-            EventEntity entity = new EventEntity(item.Id, item.Text, item.Date);
+            EventEntity entity = new EventEntity(item.Id, item.Text, item.EventDate);
             int result = await App.Database.SaveEventAsync(entity);
 
             return result > 0;
@@ -42,6 +42,8 @@ namespace DefineReminder.Services
             
             foreach (var eventEntity in eventEntities)
             {
+                // Dates in DB are saved in UTC format
+                eventEntity.Date = eventEntity.Date.ToLocalTime();
                 reminderEvents.Add(new ReminderEvent(eventEntity));
             }
 
@@ -50,7 +52,7 @@ namespace DefineReminder.Services
 
         public async Task<bool> UpdateItemAsync(ReminderEvent item)
         {
-            EventEntity entity = new EventEntity(item.Id, item.Text, item.Date);
+            EventEntity entity = new EventEntity(item.Id, item.Text, item.EventDate);
             int result = await App.Database.SaveEventAsync(entity);
 
             return result > 0;
