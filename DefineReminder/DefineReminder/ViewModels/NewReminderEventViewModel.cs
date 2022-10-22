@@ -36,7 +36,7 @@ namespace DefineReminder.ViewModels
             get => name;
             set => SetProperty(ref name, value);
         }
-        
+
         public string Description
         {
             get => description;

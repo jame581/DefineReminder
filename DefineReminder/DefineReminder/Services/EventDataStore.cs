@@ -32,7 +32,7 @@ namespace DefineReminder.Services
                 return null;
             }
 
-            eventEntity.Date = eventEntity.Date.ToLocalTime();            
+            eventEntity.Date = eventEntity.Date.ToLocalTime();
             return new ReminderEvent(eventEntity);
         }
 
@@ -40,7 +40,7 @@ namespace DefineReminder.Services
         {
             List<EventEntity> eventEntities = await App.Database.GetEventsAsync();
             List<ReminderEvent> reminderEvents = new List<ReminderEvent>();
-            
+
             foreach (var eventEntity in eventEntities)
             {
                 // Dates in DB are saved in UTC format

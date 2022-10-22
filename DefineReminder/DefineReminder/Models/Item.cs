@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DefineReminder.Models
+﻿namespace DefineReminder.Models
 {
     public class Item
     {

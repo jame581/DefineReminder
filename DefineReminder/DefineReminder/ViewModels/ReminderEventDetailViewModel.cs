@@ -25,7 +25,7 @@ namespace DefineReminder.ViewModels
             get => description;
             set => SetProperty(ref description, value);
         }
-        
+
         public DateTime EventDate
         {
             get => eventDate;

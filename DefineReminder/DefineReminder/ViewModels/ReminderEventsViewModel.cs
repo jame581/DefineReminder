@@ -48,7 +48,7 @@ namespace DefineReminder.ViewModels
                 var events = await DataStore.GetItemsAsync(true);
                 foreach (var item in events)
                 {
-                     ReminderEvents.Add(item);
+                    ReminderEvents.Add(item);
                 }
             }
             catch (Exception ex)

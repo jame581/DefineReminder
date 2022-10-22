@@ -26,7 +26,7 @@ namespace DefineReminder.Models
         TimeSpan eventTime;
 
         public int Id
-        { 
+        {
             get => id;
             set
             {
@@ -64,7 +64,7 @@ namespace DefineReminder.Models
                 OnPropertyChanged(nameof(EventDate));
             }
         }
-        
+
         public TimeSpan EventTime
         {
             get => eventTime;
@@ -76,7 +76,7 @@ namespace DefineReminder.Models
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-        
+
         protected virtual void OnPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)

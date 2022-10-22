@@ -1,7 +1,5 @@
-﻿using DefineReminder.ViewModels;
-using DefineReminder.Views;
+﻿using DefineReminder.Views;
 using System;
-using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace DefineReminder
