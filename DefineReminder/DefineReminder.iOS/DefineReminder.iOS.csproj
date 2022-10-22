@@ -145,4 +145,16 @@
       <Name>DefineReminder</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\default_event.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sport_event.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\party_event.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\meeting_event.png" />
+  </ItemGroup>
 </Project>
