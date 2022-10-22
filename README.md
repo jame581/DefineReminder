@@ -14,6 +14,7 @@ That's it :)
 ## Features
 - Database SQL Lite for save and load reminder events
 - List, show detail and add reminder events
+- Select icon type for event
 
 ### Future features
 - Update reminder events
@@ -27,8 +28,7 @@ That's it :)
 Do you like this project and want me support? Great! I really appreciate it and makes me very happy if you buy [Buy Me A Coffee](https://www.buymeacoffee.com/jame581).
 
 ## Screenshots
-
-![Events List](https://user-images.githubusercontent.com/21112138/195997383-d9382ff0-5aa0-4724-835d-101e6d4cbb36.png)
+![Events List](https://user-images.githubusercontent.com/21112138/197359229-811b74c6-23db-465a-aeef-1eabada39d14.png)
 ![Event Detail](https://user-images.githubusercontent.com/21112138/195997455-a4808a02-f55f-49f6-83d6-eed2037917d0.png)
-![Add New Event](https://user-images.githubusercontent.com/21112138/195999254-db3aa532-7f3e-4469-9304-23d04f314e5e.png)
+![Add New Event](https://user-images.githubusercontent.com/21112138/197359259-765da9f5-e121-45ca-80a3-fb6295661526.png)
 ![About](https://user-images.githubusercontent.com/21112138/195997338-1a9ecf9c-4673-4455-a291-a7be977a6076.png)
