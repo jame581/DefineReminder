@@ -13,6 +13,14 @@
             <DatePicker Date="{Binding EventDate}" />
             <Label Text="Select time" FontSize="Medium" />
             <TimePicker Format="HH:mm:ss" Time="{Binding EventTime}"/>
+            <StackLayout Orientation="Horizontal" Padding="0, 10">
+                <Image Source="default_event.png" WidthRequest="32" />
+                <Picker Title="Select even icon"
+                    ItemsSource="{Binding IconTypes}"
+                    ItemDisplayBinding="{Binding Name}"
+                    SelectedItem="{Binding SelectedIconType}"
+                    HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
                 <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>

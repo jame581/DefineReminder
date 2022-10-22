@@ -1,5 +1,7 @@
-﻿using DefineReminder.Models;
+﻿using DefineReminder.Entities;
+using DefineReminder.Models;
 using System;
+using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace DefineReminder.ViewModels
@@ -10,6 +12,7 @@ namespace DefineReminder.ViewModels
         string description;
         DateTime eventDate;
         TimeSpan eventTime;
+        EventIconType selectedIconType;
 
         public AddReminderEventViewModel()
         {
@@ -23,6 +26,8 @@ namespace DefineReminder.ViewModels
 
             this.PropertyChanged +=
                 (_, __) => SaveCommand.ChangeCanExecute();
+
+            InitializeIconSelection();
         }
 
         private bool ValidateSave()
@@ -30,6 +35,8 @@ namespace DefineReminder.ViewModels
             return !String.IsNullOrWhiteSpace(name)
                 && !String.IsNullOrWhiteSpace(description);
         }
+        
+        public List<EventIconType> IconTypes { get; set; }
 
         public string Name
         {
@@ -54,6 +61,12 @@ namespace DefineReminder.ViewModels
             set => SetProperty(ref eventTime, value);
         }
 
+        public EventIconType SelectedIconType
+        {
+            get => selectedIconType;
+            set => SetProperty(ref selectedIconType, value);
+        }
+
         public Command SaveCommand { get; }
         public Command CancelCommand { get; }
 
@@ -72,12 +85,23 @@ namespace DefineReminder.ViewModels
                 Name = Name,
                 Description = Description,
                 EventDate = dateTime,
+                IconType = SelectedIconType == null ? IconType.Default : SelectedIconType.IconType, 
             };
 
             await DataStore.AddItemAsync(newReminderEvent);
 
             // This will pop the current page off the navigation stack
             await Shell.Current.GoToAsync("..");
+        }
+
+        void InitializeIconSelection()
+        {
+            IconTypes = new List<EventIconType>();
+
+            foreach (IconType iconType in Enum.GetValues(typeof(IconType)))
+            {
+                IconTypes.Add(new EventIconType { IconType = iconType, Name = iconType.ToString() });
+            }
         }
     }
 }
