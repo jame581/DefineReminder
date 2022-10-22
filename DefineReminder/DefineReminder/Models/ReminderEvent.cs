@@ -17,6 +17,7 @@ namespace DefineReminder.Models
             Name = eventEntity.Name;
             Description = eventEntity.Description;
             EventDate = eventEntity.Date;
+            IconType = (IconType)eventEntity.IconType;
         }
 
         int id;
@@ -24,6 +25,7 @@ namespace DefineReminder.Models
         string description;
         DateTime eventDate;
         TimeSpan eventTime;
+        IconType iconType = IconType.Default;
 
         public int Id
         {
@@ -72,6 +74,35 @@ namespace DefineReminder.Models
             {
                 eventTime = value;
                 OnPropertyChanged(nameof(EventTime));
+            }
+        }
+
+        public string EventImageUrl
+        {
+            get
+            {
+                switch (IconType)
+                {
+                    case IconType.Sport:
+                        return "sport_event.png";
+                    case IconType.Party:
+                        return "party_event.png";
+                    case IconType.Meeting:
+                        return "meeting_event.png";
+                    case IconType.Default:
+                    default:
+                        return "default_event.png";
+                }
+            }
+        }
+
+        public IconType IconType
+        {
+            get => iconType;
+            set
+            {
+                iconType = value;
+                OnPropertyChanged(nameof(IconType));
             }
         }
 

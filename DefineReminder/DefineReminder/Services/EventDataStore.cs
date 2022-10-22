@@ -9,7 +9,7 @@ namespace DefineReminder.Services
     {
         public async Task<bool> AddItemAsync(ReminderEvent item)
         {
-            EventEntity entity = new EventEntity(item.Id, item.Name, item.Description, item.EventDate.ToUniversalTime());
+            EventEntity entity = new EventEntity(item.Id, item.Name, item.Description, item.EventDate.ToUniversalTime(), (int)item.IconType);
             int result = await App.Database.SaveEventAsync(entity);
 
             return result > 0;
@@ -53,7 +53,7 @@ namespace DefineReminder.Services
 
         public async Task<bool> UpdateItemAsync(ReminderEvent item)
         {
-            EventEntity entity = new EventEntity(item.Id, item.Name, item.Description, item.EventDate.ToUniversalTime());
+            EventEntity entity = new EventEntity(item.Id, item.Name, item.Description, item.EventDate.ToUniversalTime(), (int)item.IconType);
             int result = await App.Database.SaveEventAsync(entity);
 
             return result > 0;
