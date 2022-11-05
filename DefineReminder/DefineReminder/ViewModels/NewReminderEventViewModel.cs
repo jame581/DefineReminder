@@ -1,5 +1,6 @@
 ﻿using DefineReminder.Entities;
 using DefineReminder.Models;
+using DefineReminder.Services;
 using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
@@ -13,6 +14,9 @@ namespace DefineReminder.ViewModels
         DateTime eventDate;
         TimeSpan eventTime;
         EventIconType selectedIconType;
+        bool sendNotification;
+
+        INotificationManager notificationManager;
 
         public AddReminderEventViewModel()
         {
@@ -26,6 +30,8 @@ namespace DefineReminder.ViewModels
 
             this.PropertyChanged +=
                 (_, __) => SaveCommand.ChangeCanExecute();
+
+            notificationManager = DependencyService.Get<INotificationManager>();
 
             InitializeIconSelection();
         }
@@ -66,6 +72,12 @@ namespace DefineReminder.ViewModels
             get => selectedIconType;
             set => SetProperty(ref selectedIconType, value);
         }
+        
+        public bool SendNotification
+        {
+            get => sendNotification;
+            set => SetProperty(ref sendNotification, value);
+        }
 
         public Command SaveCommand { get; }
         public Command CancelCommand { get; }
@@ -89,6 +101,10 @@ namespace DefineReminder.ViewModels
             };
 
             await DataStore.AddItemAsync(newReminderEvent);
+
+            string title = $"Event {Name}";
+            string message = $"Your scheduled event just started!";
+            notificationManager.SendNotification(title, message, dateTime);
 
             // This will pop the current page off the navigation stack
             await Shell.Current.GoToAsync("..");

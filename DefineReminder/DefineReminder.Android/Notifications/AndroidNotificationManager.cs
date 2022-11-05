@@ -5,6 +5,7 @@ using Android.Graphics;
 using Android.OS;
 using AndroidX.Core.App;
 using DefineReminder.Droid.Notifications;
+using DefineReminder.Entities;
 using DefineReminder.Events;
 using DefineReminder.Services;
 using Xamarin.Forms;
@@ -43,7 +44,7 @@ namespace DefineReminder.Droid.Notifications
             }
         }
 
-        public void SendNotification(string title, string message, DateTime? notifyTime = null)
+        public void SendNotification(string title, string message, DateTime? notifyTime = null, IconType iconType = IconType.Default)
         {
             if (!channelInitialized)
             {
@@ -63,7 +64,7 @@ namespace DefineReminder.Droid.Notifications
             }
             else
             {
-                Show(title, message);
+                Show(title, message, iconType);
             }
         }
 
@@ -77,7 +78,7 @@ namespace DefineReminder.Droid.Notifications
             NotificationReceived?.Invoke(null, args);
         }
 
-        public void Show(string title, string message)
+        public void Show(string title, string message, IconType iconType = IconType.Default)
         {
             Intent intent = new Intent(AndroidApp.Context, typeof(MainActivity));
             intent.PutExtra(TitleKey, title);
@@ -85,12 +86,14 @@ namespace DefineReminder.Droid.Notifications
 
             PendingIntent pendingIntent = PendingIntent.GetActivity(AndroidApp.Context, pendingIntentId++, intent, PendingIntentFlags.UpdateCurrent);
 
+            int resourceIcon = GetNotificationIcon(iconType);
+
             NotificationCompat.Builder builder = new NotificationCompat.Builder(AndroidApp.Context, channelId)
                 .SetContentIntent(pendingIntent)
                 .SetContentTitle(title)
                 .SetContentText(message)
-                .SetLargeIcon(BitmapFactory.DecodeResource(AndroidApp.Context.Resources, Resource.Drawable.notification_template_icon_bg))
-                .SetSmallIcon(Resource.Drawable.notification_template_icon_bg)
+                .SetLargeIcon(BitmapFactory.DecodeResource(AndroidApp.Context.Resources, resourceIcon))
+                .SetSmallIcon(resourceIcon)
                 .SetDefaults((int)NotificationDefaults.Sound | (int)NotificationDefaults.Vibrate);
 
             Notification notification = builder.Build();
@@ -120,6 +123,24 @@ namespace DefineReminder.Droid.Notifications
             double epochDiff = (new DateTime(1970, 1, 1) - DateTime.MinValue).TotalSeconds;
             long utcAlarmTime = utcTime.AddSeconds(-epochDiff).Ticks / 10000;
             return utcAlarmTime; // milliseconds
+        }
+
+        int GetNotificationIcon(IconType iconType)
+        {
+            switch (iconType)
+            {
+                case IconType.Sport:
+                    return Resource.Drawable.sport_event;
+                case IconType.Party:
+                    return Resource.Drawable.party_event;
+                case IconType.Meeting:
+                    return Resource.Drawable.meeting_event;                
+                
+                case IconType.Default:
+                default:
+                    return Resource.Drawable.default_event;
+
+            }
         }
     }
 }

@@ -21,7 +21,11 @@
                     SelectedItem="{Binding SelectedIconType}"
                     HorizontalOptions="FillAndExpand"/>
             </StackLayout>
-            <StackLayout Orientation="Horizontal">
+            <StackLayout Orientation="Horizontal" Padding="0, 10">
+                <Label VerticalOptions="Center" FontSize="Medium" Text="Send notification on start event?" />
+                <CheckBox VerticalOptions="Center" IsChecked="{Binding SendNotification}" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Padding="0, 10">
                 <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
                 <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
             </StackLayout>

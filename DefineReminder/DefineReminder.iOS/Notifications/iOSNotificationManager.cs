@@ -5,6 +5,7 @@ using System;
 using Foundation;
 using UserNotifications;
 using Xamarin.Forms;
+using DefineReminder.Entities;
 
 [assembly: Dependency(typeof(iOSNotificationManager))]
 namespace DefineReminder.iOS.Notifications
@@ -24,7 +25,7 @@ namespace DefineReminder.iOS.Notifications
             });
         }
 
-        public void SendNotification(string title, string message, DateTime? notifyTime = null)
+        public void SendNotification(string title, string message, DateTime? notifyTime = null, IconType iconType = IconType.Default)
         {
             // EARLY OUT: app doesn't have permissions
             if (!hasNotificationsPermission)
