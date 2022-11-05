@@ -1,5 +1,8 @@
-﻿using System;
+﻿using DefineReminder.Entities;
+using DefineReminder.Models;
+using System;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 
 namespace DefineReminder.ViewModels
@@ -11,6 +14,11 @@ namespace DefineReminder.ViewModels
         string name;
         string description;
         DateTime eventDate;
+
+        public ReminderEventDetailViewModel()
+        {
+            DeleteCommand = new Command(OnDelete);
+        }
 
         public int Id { get; set; }
 
@@ -45,6 +53,8 @@ namespace DefineReminder.ViewModels
             }
         }
 
+        public Command DeleteCommand { get; }
+
         public async void LoadReminderEventId(int reminderEventId)
         {
             try
@@ -60,6 +70,17 @@ namespace DefineReminder.ViewModels
             catch (Exception)
             {
                 Debug.WriteLine("Failed to Load Item");
+            }
+        }
+
+        private async void OnDelete()
+        {
+            bool wasDeleted = await DataStore.DeleteItemAsync(ReminderEventId);
+
+            if (wasDeleted)
+            {
+                // This will pop the current page off the navigation stack
+                await Shell.Current.GoToAsync("..");
             }
         }
     }

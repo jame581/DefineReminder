@@ -5,14 +5,20 @@
              Title="{Binding Title}">
     <ContentPage.Content>
 
-        <StackLayout Spacing="20" Padding="15">
-            <Label Text="Name:" FontSize="Medium" />
-            <Label Text="{Binding Name}" FontSize="Small"/>
-            <Label Text="Description:" FontSize="Medium" />
-            <Label Text="{Binding Description}" FontSize="Small"/>
-            <Label Text="Event date:" FontSize="Medium" />
-            <Label Text="{Binding EventDate}" FontSize="Small"/>
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout Spacing="20" Padding="15">
+                <Label Text="Name:" FontSize="Medium" />
+                <Label Text="{Binding Name}" FontSize="Small"/>
+                <Label Text="Description:" FontSize="Medium" />
+                <Label Text="{Binding Description}" FontSize="Small"/>
+                <Label Text="Event date:" FontSize="Medium" />
+                <Label Text="{Binding EventDate}" FontSize="Small"/> 
+            </StackLayout>
+
+            <StackLayout Spacing="20" Padding="10,50" VerticalOptions="EndAndExpand">
+                <Button Text="Delete" BackgroundColor="Red" Command="{Binding DeleteCommand}"/>
+            </StackLayout>
         </StackLayout>
-        
+         
     </ContentPage.Content>
 </ContentPage>
