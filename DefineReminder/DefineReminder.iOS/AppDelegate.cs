@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using DefineReminder.iOS.Notifications;
 using Foundation;
 using UIKit;
+using UserNotifications;
 
 namespace DefineReminder.iOS
 {
@@ -23,6 +24,9 @@ namespace DefineReminder.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+
+            UNUserNotificationCenter.Current.Delegate = new iOSNotificationReceiver();
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
